@@ -76,6 +76,10 @@ p {
   display: flex;
   flex-wrap: wrap;
 }
+
+.column {
+  flex-direction: column;
+}
 .justify-content-between {
   justify-content: space-between;
 }
@@ -166,7 +170,6 @@ p {
   top: 0;
   z-index: 99;
   width: 100%;
-  background-color: var(--dark-light);
 }
 
 .header::before {
@@ -292,4 +295,124 @@ p {
 
 .header .nav ul li a:hover {
   color: var(--main-color);
+}
+
+/* about Section */
+
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.about-section .min-vh-100 {
+  padding: 100px 0;
+}
+
+.about-section .about-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("../img/concurso.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  animation: zoomInOut 20s ease infinite;
+}
+
+.about-text {
+  padding: 0 15px;
+  max-width: 700px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.about-text h1 {
+  font-family: var(--cursive-font);
+  font-size: 60px;
+  line-height: 75px;
+  margin: 0 0 5px;
+}
+
+.about-text p {
+  margin: 0 0 30px;
+}
+
+/*table section */
+
+.table-section {
+  background-color: var(--dark-light);
+}
+
+.table-section .section-title {
+  margin-bottom: 40px;
+}
+
+.table-users {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-users td,
+th {
+  border: 1px solid #eaa023;
+  padding: 8px;
+}
+
+.table-section .table-users tr {
+  background-color: var(--dark);
+}
+
+/*classification section */
+
+.classification-section {
+  background-color: var(--dark);
+}
+
+.classification-section .section-title {
+  margin-bottom: 40px;
+}
+
+.item-title {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+/* participantsDetails section */
+.participants-details-section {
+  background-color: var(--dark-light);
+}
+
+/* footer section */
+.footer {
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  background-color: var(--dark);
+}
+
+.footer .copyright {
+  width: 100%;
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 14px;
 }

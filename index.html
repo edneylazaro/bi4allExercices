@@ -20,12 +20,13 @@
           </button>
           <nav class="nav">
             <ul>
-              <li class="nav-item"><a href="#home">Home</a></li>
               <li class="nav-item"><a href="#about">About</a></li>
               <li class="nav-item"><a href="#participants">Participants</a></li>
-              <li class="nav-item"><a href="#Winners">Winners</a></li>
               <li class="nav-item">
                 <a href="#classifications">Classifications</a>
+              </li>
+              <li class="nav-item">
+                <a href="#participantsDetails">Participants Details</a>
               </li>
             </ul>
           </nav>
@@ -37,13 +38,105 @@
     <!-- about start-->
     <section class="about-section sec-padding" id="about">
       <div class="container">
-        <div class="section-title">
-          <h2 data-title="about us"></h2>
+        <div class="about-bg"></div>
+        <div class="row min-vh-100 align-items-center">
+          <div class="about-text">
+            <h1>About the Contest</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <a href="#classifications" class="btn btn-default"
+              >Classifications</a
+            >
+          </div>
         </div>
       </div>
     </section>
 
     <!-- about end-->
+
+    <!-- Participants section start-->
+    <section class="table-section sec-padding" id="participants">
+      <div class="container">
+        <div class="row">
+          <div class="section-title">
+            <h2>Participants</h2>
+            <table class="table-users">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Email</th>
+                </tr>
+              </thead>
+              <tbody id="table_body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Participants section start-->
+
+    <!-- classification section start-->
+    <section class="classification-section sec-padding" id="classifications">
+      <div class="container">
+        <div class="row">
+          <div class="section-title"><h2>Classifications</h2></div>
+        </div>
+        <div id="placements"></div>
+      </div>
+    </section>
+    <!-- classification section end-->
+
+    <!-- participants detail section start-->
+    <section
+      class="participants-details-section sec-padding"
+      id="participantsDetails"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="section-title"><h2>Participants Details</h2></div>
+        </div>
+        <div class="row">
+          <div class="section-title">
+            <table class="table-users">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Details</th>
+                </tr>
+              </thead>
+              <tbody id="table_body_participants"></tbody>
+            </table>
+          </div>
+          <div class="section-title">
+            <h2>Detail</h2>
+            <div id="details_body">
+              <h3>Place</h3>
+              <h3>Name</h3>
+              <h3>Prise</h3>
+              <p>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- participants detail section start-->
+
+    <!-- footer section start-->
+    <footer class="footer">
+      <div class="row">
+        <div class="copyright">@copy; 2022 - Designed by Edney Lázaro</div>
+      </div>
+    </footer>
 
     <script src="./js/script.js"></script>
   </body>

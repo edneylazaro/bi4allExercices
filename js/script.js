@@ -20,29 +20,79 @@ document.addEventListener("click", function(e){
 /* sticky header */
 
 window.addEventListener("scroll", function(){
-    if(this.scrollY > 500){
+    if(this.scrollY > 900){
         document.querySelector(".header").classList.add("sticky");
     } else {
         document.querySelector(".header").classList.remove("sticky");
     }
 })
+let data = "";
+let userDetail="";
+/* Api */
+fetch("https://fakestoreapi.com/users").then((data) =>{
+    return data.json();
+}).then((json) =>{
+    data = json;
+    let users ="";
+    let placements="";
+    let details="";
+    json.map((user) =>{
+        users+=`<tr>
+        <td>${user.name.firstname +" "+user.name.lastname }</td>
+        <td>${user.phone}</td>
+        <td>${user.email}</td>
+      </tr> `
 
-/* menu tabs */
+        details+=`<tr>
+        <td>${user.name.firstname +" "+user.name.lastname }</td>
+        <td>
+            <button onclick="onSeeDetails(${user.id})" >See Details</button>
+        </td>
+      </tr> `
+    });
 
-const menuTabs = document.querySelector(".menu-tabs");
-menuTabs.addEventListener("click", function(e){
-    if(e.target.classList.contains("menu-tabs-item") && !e.target.classList.contains("active")){
-        const target = e.target.getAttribute("data-target");
-        menuTabs.querySelector(".active").classList.remove("active")
-        e.target.classList.add("active");
+    placements = `<div class="first-place">
+    <div class="section-title">
+      <img src="./img/firstPlace.png" alt="firstPlace" height="140px" />
+      <h3>${json[0].name.firstname +" "+json[0].name.lastname}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column item-title">
+      <img src="./img/secondPlace.png" alt="firstPlace" height="140px" />
+      <h3>${json[1].name.firstname +" "+json[1].name.lastname}</h3>
+    </div>
+    <div class="column item-title">
+      <img src="./img/thirdPlace.png" alt="firstPlace" height="140px" />
+      <h3>${json[2].name.firstname +" "+json[2].name.lastname}</h3>
+    </div>`
+    
+    document.getElementById("table_body").innerHTML=users;
+    document.getElementById("placements").innerHTML=placements;
+    document.getElementById("table_body_participants").innerHTML=details;
+    
+});
 
-        const menuSection = document.querySelector(".menu-section");
-        menuSection.querySelector(".menu-tabs-content.active").classList.remove("active");
-        menuSection.querySelector(target).classList.add("active");
+function helper(place, firstname, lastname, prise ) {
+    userDetail =`<h3>${place} º Place</h3>
+         <h3>${firstname +" "+lastname}</h3>
+         <h3>Prise</h3>
+         <p>
+           ${prise}
+         </p>`;
+ }
+
+function onSeeDetails(number){
+    
+    switch (number) {
+        case 1:  helper(data[number-1].id, data[number-1].name.firstname, data[number-1].name.lastname, "A television + A Computer" )
+        break;
+        case 2:  helper(data[number-1].id, data[number-1].name.firstname, data[number-1].name.lastname, "A radio" )
+        break;
+        case 3:  helper(data[number-1].id, data[number-1].name.firstname, data[number-1].name.lastname, "A pencil" )
+        break;
+        default:  helper(data[number-1].id, data[number-1].name.firstname, data[number-1].name.lastname, "Nothing" )
+       break
     }
-})
-
-window.addEventListener("load", function(){
-    AOS.init();
-})
-
+    document.getElementById("details_body").innerHTML=userDetail;
+}

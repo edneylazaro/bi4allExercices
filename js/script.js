@@ -27,22 +27,34 @@ window.addEventListener("scroll", function(){
     }
 })
 
+/* Api */
+let users;
+async function getUsers(){
+    let response = await fetch('https://fakestoreapi.com/users');
+    let data = await response.json();
+    return data;
+}
+
+getUsers().then(response =>{
+    users = response
+})
+
 /* menu tabs */
 
-const menuTabs = document.querySelector(".menu-tabs");
-menuTabs.addEventListener("click", function(e){
-    if(e.target.classList.contains("menu-tabs-item") && !e.target.classList.contains("active")){
-        const target = e.target.getAttribute("data-target");
-        menuTabs.querySelector(".active").classList.remove("active")
-        e.target.classList.add("active");
+// const menuTabs = document.querySelector(".menu-tabs");
+// menuTabs.addEventListener("click", function(e){
+//     if(e.target.classList.contains("menu-tabs-item") && !e.target.classList.contains("active")){
+//         const target = e.target.getAttribute("data-target");
+//         menuTabs.querySelector(".active").classList.remove("active")
+//         e.target.classList.add("active");
 
-        const menuSection = document.querySelector(".menu-section");
-        menuSection.querySelector(".menu-tabs-content.active").classList.remove("active");
-        menuSection.querySelector(target).classList.add("active");
-    }
-})
+//         const menuSection = document.querySelector(".menu-section");
+//         menuSection.querySelector(".menu-tabs-content.active").classList.remove("active");
+//         menuSection.querySelector(target).classList.add("active");
+//     }
+// })
 
-window.addEventListener("load", function(){
-    AOS.init();
-})
+// window.addEventListener("load", function(){
+//     AOS.init();
+// })
 
